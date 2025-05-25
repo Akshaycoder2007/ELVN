@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&family=Poppins:wght@400;700&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #0B0C10, #1F2833);
+  color: #E0E6ED;
+}
+
+header {
+  background: #16213E;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em 3em;
+  border-bottom: 3px solid #00F0FF;
+}
+
+.logo {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2.2em;
+  font-weight: 700;
+  color: #00F0FF;
+}
+
+.auth-links button {
+  background: #00F0FF;
+  border: none;
+  color: #000;
+  font-weight: 700;
+  margin-left: 1em;
+  padding: 0.5em 1.2em;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.auth-links button:hover {
+  background: #00C4CC;
+}
+
+main {
+  padding: 2em 3em;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.form-section {
+  background: #1F2833;
+  padding: 2em;
+  max-width: 400px;
+  margin: 2em auto;
+  border-radius: 15px;
+  box-shadow: 0 0 25px #00F0FF55;
+  text-align: center;
+}
+
+.form-section input {
+  width: 90%;
+  padding: 0.8em;
+  margin: 1em 0;
+  border-radius: 10px;
+  border: none;
+  background: #0B0C10;
+  color: white;
+  font-size: 1em;
+}
+
+.form-section button {
+  background: #00F0FF;
+  border: none;
+  color: black;
+  font-weight: 700;
+  padding: 0.7em 1.5em;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+
+.products-section h2, .feature-section h2 {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+  font-size: 2em;
+  margin-bottom: 1em;
+  text-align: center;
+  color: #00F0FF;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill,minmax(220px,1fr));
+  gap: 2em;
+}
+
+.card {
+  background: #1F2833;
+  border-radius: 15px;
+  padding: 1em;
+  box-shadow: 0 0 15px #00F0FF88;
+  text-align: center;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: scale(1.07);
+  box-shadow: 0 0 30px #00FFFFaa;
+}
+
+.card img {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 1em;
+}
+
+.card h3 {
+  margin: 0.5em 0;
+  font-weight: 700;
+  color: #00F0FF;
+}
+
+.card p {
+  margin: 0.5em 0 1em 0;
+  font-weight: 600;
+  color: #B0E0E6;
+}
+
+.card button {
+  background: #00F0FF;
+  border: none;
+  color: black;
+  font-weight: 700;
+  padding: 0.5em 1.2em;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.card button:hover {
+  background: #00C4CC;
+}
+
+#cart-section {
+  background: #1F2833;
+  padding: 1em 2em;
+  max-width: 600px;
+  margin: 2em auto;
+  border-radius: 15px;
+  box-shadow: 0 0 25px #00F0FFbb;
+}
+
+#cart-items {
+  margin-bottom: 1em;
+}
+
+#cart-items div {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5em 0;
+  border-bottom: 1px solid #00F0FF44;
+}
+
+.feature-section {
+  background: #121212;
+  padding: 2em 1em;
+  margin: 3em auto;
+  border-radius: 15px;
+  max-width: 900px;
+  box-shadow: 0 0 25px #00F0FFbb;
+  text-align: center;
+}
+
+#camera {
+  width: 320px;
+  height: 240px;
+  border-radius: 15px;
+  box-shadow: 0 0 15px #00F0FFaa;
+  margin: 1em 0;
+}
+
+button:focus {
+  outline: none;
+  box-shadow: 0 0 10px #00F0FFcc;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    gap: 1em;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(auto-fill,minmax(160px,1fr));
+  }
+
+  main {
+    padding: 1em;
+  }
+}

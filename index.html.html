@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ELVN Ultimate Fashion App</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="app.js"></script>
+</head>
+<body>
+
+  <header>
+    <div class="logo">ELVN</div>
+    <div class="auth-links">
+      <button onclick="showLogin()">Login</button>
+      <button onclick="showSignup()">Sign Up</button>
+      <button onclick="showCart()">Cart (<span id="cart-count">0</span>)</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- LOGIN FORM -->
+    <section id="login-form" class="form-section hidden">
+      <h2>Login</h2>
+      <input type="email" id="login-email" placeholder="Email" />
+      <input type="password" id="login-pass" placeholder="Password" />
+      <button onclick="loginUser()">Login</button>
+    </section>
+
+    <!-- SIGNUP FORM -->
+    <section id="signup-form" class="form-section hidden">
+      <h2>Sign Up</h2>
+      <input type="email" id="signup-email" placeholder="Email" />
+      <input type="password" id="signup-pass" placeholder="Password" />
+      <button onclick="signupUser()">Sign Up</button>
+    </section>
+
+    <!-- CART SECTION -->
+    <section id="cart-section" class="hidden">
+      <h2>Your Cart</h2>
+      <div id="cart-items"></div>
+      <button onclick="checkout()">Checkout</button>
+      <button onclick="closeCart()">Close Cart</button>
+    </section>
+
+    <!-- PRODUCTS -->
+    <section id="products" class="products-section">
+      <h2>👕 ELVN Featured Products</h2>
+      <div class="product-grid">
+        <div class="card" data-id="1" data-name="Jet Black Hoodie" data-price="69.99">
+          <img src="https://i.imgur.com/FYrbFDP.png" alt="Jet Black Hoodie" />
+          <h3>Jet Black Hoodie</h3>
+          <p>$69.99</p>
+          <button onclick="addToCart(1)">Add to Cart</button>
+        </div>
+
+        <div class="card" data-id="2" data-name="Galaxy Drip Tee" data-price="49.99">
+          <img src="https://i.imgur.com/w1pOMqH.png" alt="Galaxy Drip Tee" />
+          <h3>Galaxy Drip Tee</h3>
+          <p>$49.99</p>
+          <button onclick="addToCart(2)">Add to Cart</button>
+        </div>
+
+        <div class="card" data-id="3" data-name="Neon Pulse Tracksuit" data-price="99.99">
+          <img src="https://i.imgur.com/96WZaPc.png" alt="Neon Pulse Tracksuit" />
+          <h3>Neon Pulse Tracksuit</h3>
+          <p>$99.99</p>
+          <button onclick="addToCart(3)">Add to Cart</button>
+        </div>
+
+        <div class="card" data-id="4" data-name="CyberWhite Longsleeve" data-price="59.99">
+          <img src="https://i.imgur.com/OI8pRRD.png" alt="CyberWhite Longsleeve" />
+          <h3>CyberWhite Longsleeve</h3>
+          <p>$59.99</p>
+          <button onclick="addToCart(4)">Add to Cart</button>
+        </div>
+
+        <div class="card" data-id="5" data-name="Quantum Black Sneakers" data-price="120.99">
+          <img src="https://i.imgur.com/vCK0XGo.png" alt="Quantum Black Sneakers" />
+          <h3>Quantum Black Sneakers</h3>
+          <p>$120.99</p>
+          <button onclick="addToCart(5)">Add to Cart</button>
+        </div>
+
+        <div class="card" data-id="6" data-name="Future Blue Joggers" data-price="75.99">
+          <img src="https://i.imgur.com/87MXUvp.png" alt="Future Blue Joggers" />
+          <h3>Future Blue Joggers</h3>
+          <p>$75.99</p>
+          <button onclick="addToCart(6)">Add to Cart</button>
+        </div>
+
+        <div class="card" data-id="7" data-name="Astral Glow Hoodie" data-price="85.99">
+          <img src="https://i.imgur.com/2H7YjvA.png" alt="Astral Glow Hoodie" />
+          <h3>Astral Glow Hoodie</h3>
+          <p>$85.99</p>
+          <button onclick="addToCart(7)">Add to Cart</button>
+        </div>
+
+        <div class="card" data-id="8" data-name="ZeroGravity Tee" data-price="39.99">
+          <img src="https://i.imgur.com/hVZp6co.png" alt="ZeroGravity Tee" />
+          <h3>ZeroGravity Tee</h3>
+          <p>$39.99</p>
+          <button onclick="addToCart(8)">Add to Cart</button>
+        </div>
+
+        <div class="card" data-id="9" data-name="PixelStorm Cap" data-price="25.99">
+          <img src="https://i.imgur.com/ndPvP0f.png" alt="PixelStorm Cap" />
+          <h3>PixelStorm Cap</h3>
+          <p>$25.99</p>
+          <button onclick="addToCart(9)">Add to Cart</button>
+        </div>
+
+        <div class="card" data-id="10" data-name="InfraVibe Jacket" data-price="110.99">
+          <img src="https://i.imgur.com/GMqzP4u.png" alt="InfraVibe Jacket" />
+          <h3>InfraVibe Jacket</h3>
+          <p>$110.99</p>
+          <button onclick="addToCart(10)">Add to Cart</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- NeuroMood Wear Selector -->
+    <section id="neuromood" class="feature-section">
+      <h2>🧠 NeuroMood Wear Selector</h2>
+      <p id="mood-status">Detecting your mood...</p>
+    </section>
+
+    <!-- AuraFit Engine -->
+    <section id="aurafit" class="feature-section">
+      <h2>🪞 AuraFit Engine</h2>
+      <video id="camera" autoplay muted></video>
+      <p id="aura-result">Analyzing aura...</p>
+    </section>
+
+    <!-- SoundFit Player -->
+    <section id="soundfit" class="feature-section">
+      <h2>🛸 SoundFit Player</h2>
+      <button onclick="playSoundfit('jet-black-hoodie')">Play for Jet Black Hoodie</button>
+      <button onclick="playSoundfit('galaxy-drip-tee')">Play for Galaxy Drip Tee</button>
+    </section>
+  </main>
+
+</body>
+</html>
